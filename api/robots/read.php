@@ -1,8 +1,8 @@
 <?php
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
-include_once '../../configuration/DataBase.php';
-include_once '../../models/Goods.php';
+include_once '../../Configuration/DataBase.php';
+include_once '../../Models/Goods.php';
 
 
 //Создаем объект из класса и коннектимся

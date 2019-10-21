@@ -21,7 +21,7 @@ public function readRobo()
      //создаем запрос
      $query = 'SELECT id, name, type, year, description FROM ' . $this->table . '';
      // подготавливаем
-     $statement = $this->conn-prepare($query);
+     $statement = $this->conn->prepare($query);
      //выполняем запрос
      $statement->execute();
      return $statement;
