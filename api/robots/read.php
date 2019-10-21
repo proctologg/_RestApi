@@ -36,7 +36,7 @@ if($num > 0) {
         array_push($products_arr, $product_item);
     }
 
-    echo json_encode($products_arr);
+    echo json_encode($products_arr, JSON_UNESCAPED_UNICODE);
 
 }  else {
     //  На случай если в базе нет роботов
