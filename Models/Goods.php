@@ -31,11 +31,11 @@ class Goods
     //Получить одного робота
     public function readOneRobo()
     {
-        $query = 'SELECT id, name, type, year, description FROM ' . $this->table . ' WHERE id = ? LIMIT 0,1';
+        $query = 'SELECT id, name, type, year, description FROM ' . $this->table . ' WHERE id = ? ';
         // подготавливаем
         $statement = $this->conn->prepare($query);
         //Биндим id
-        ;$statement(1, $this->id);
+        $statement->bindParam(1, $this->id);
         //выполняем запрос
         $statement->execute();
 

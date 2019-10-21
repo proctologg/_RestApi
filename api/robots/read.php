@@ -32,7 +32,7 @@ if($num > 0) {
             'description' => html_entity_decode($description)
         );
 
-        //Отправить в 'data
+        //Отправить в 'data'
         array_push($goods_arr, $good_item);
     }
 
