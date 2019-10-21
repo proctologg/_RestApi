@@ -28,3 +28,4 @@ $product_arr = array(
 
 // Создание JSON
 print_r(json_encode($product_arr));
+
