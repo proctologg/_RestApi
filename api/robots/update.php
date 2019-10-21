@@ -26,10 +26,10 @@ $product->description = $data->descripton;
 // Метод обновления
 if($product->updateRobo()) {
     echo json_encode(
-        array('trueMesssage' => 'Робот обновлен базе данных')
+        array('trueMesssage' => 'Робот обновлен в базе данных')
     );
 } else {
     echo json_encode(
-        array('falseMessage' => 'Робот не обновлен базе данных')
+        array('falseMessage' => 'Робот не обновлен в базе данных')
     );
 }
