@@ -48,4 +48,29 @@ class Goods
         $this->description = $row['description'];
 
     }
+
+
+//СОздание робота
+    public function create()
+    {
+        $query = 'INSERT INTO ' . $this->table . ' SET name = :name, type = :type, year = :year, description = :description';
+// подготавливаем
+        $statement = $this->conn->prepare($query);
+        // Очищаем даннные
+        $this->name = htmlspecialchars(strip_tags($this->name));
+        $this->type = htmlspecialchars(strip_tags($this->type));
+        $this->year = htmlspecialchars(strip_tags($this->year));
+        $this->description = htmlspecialchars(strip_tags($this->description));
+        // Биндим аднные
+        $statement->bindParam(':name', $this->name);
+        $statement->bindParam(':type', $this->type);
+        $statement->bindParam(':year', $this->year);
+        $statement->bindParam(':description', $this->description);
+        // Выполняем запрос
+        if ($statement->execute()) {
+            return true;
+        }
+    }
+
+
 }
