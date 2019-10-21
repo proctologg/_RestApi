@@ -51,7 +51,7 @@ class Goods
 
 
 //СОздание робота
-    public function create()
+    public function createRobo()
     {
         $query = 'INSERT INTO ' . $this->table . ' SET name = :name, type = :type, year = :year, description = :description';
 // подготавливаем
@@ -66,6 +66,31 @@ class Goods
         $statement->bindParam(':type', $this->type);
         $statement->bindParam(':year', $this->year);
         $statement->bindParam(':description', $this->description);
+        // Выполняем запрос
+        if ($statement->execute()) {
+            return true;
+        }
+    }
+
+
+    public function updateRobo()
+    {
+        $query = 'UPDATE ' . $this->table . ' SET name = :name, type = :type, year = :year, description = :description WHERE id = :id';
+// подготавливаем
+        $statement = $this->conn->prepare($query);
+        // Очищаем даннные
+        $this->name = htmlspecialchars(strip_tags($this->name));
+        $this->type = htmlspecialchars(strip_tags($this->type));
+        $this->year = htmlspecialchars(strip_tags($this->year));
+        $this->description = htmlspecialchars(strip_tags($this->description));
+        $this->id = htmlspecialchars(strip_tags($this->id));
+
+        // Биндим аднные
+        $statement->bindParam(':name', $this->name);
+        $statement->bindParam(':type', $this->type);
+        $statement->bindParam(':year', $this->year);
+        $statement->bindParam(':description', $this->description);
+        $statement->bindParam(':id', $this->id);
         // Выполняем запрос
         if ($statement->execute()) {
             return true;
