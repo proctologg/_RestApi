@@ -20,11 +20,11 @@ $num = $result->rowCount();
 //Проверяем  товары
 if($num > 0) {
     // Массив товара
-    $goods_arr = array();
+    $products_arr = array();
 
     while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
-        $good_item = array(
+        $product_item = array(
             'id' => $id,
             'name' => $name,
             'type' => $type,
@@ -33,10 +33,10 @@ if($num > 0) {
         );
 
         //Отправить в 'data'
-        array_push($goods_arr, $good_item);
+        array_push($products_arr, $product_item);
     }
 
-    echo json_encode($goods_arr);
+    echo json_encode($products_arr);
 
 }  else {
     //  На случай если в базе нет роботов

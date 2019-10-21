@@ -16,8 +16,9 @@ $product->id = isset($_GET['id']) ? $_GET['id'] : die();
 
 // получить робота
 $product->readOneRobo();
+
 // созданте массива
-$good_item = array(
+$product_arr = array(
     'id' => $product->id,
     'name' => $product->name,
     'type' => $product->type,
@@ -26,4 +27,4 @@ $good_item = array(
 );
 
 // Создание JSON
-print_r(json_encode($good_item));
+print_r(json_encode($product_arr));
