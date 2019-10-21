@@ -12,24 +12,19 @@ $db = $database->connect();
 // Создаем объект товара
 $product = new Goods($db);
 
-
 // получаем равку данных
 $data = json_decode(file_get_contents("php://input"));
 
-// Устанаваливаем ID для обновления
+// Устанаваливаем ID для удаления
 $product->id = $data->id;
-$product->name = $data->name;
-$product->type = $data->type;
-$product->year = $data->year;
-$product->description = $data->descripton;
 
-// Метод обновления
-if($product->updateRobo()) {
+// Метод удаления
+if ($product->deleteRobo()) {
     echo json_encode(
-        array('trueMesssage' => 'Робот обновлен базе данных')
+        array('trueMesssage' => 'Робот удален в базе данных')
     );
 } else {
     echo json_encode(
-        array('falseMessage' => 'Робот не обновлен базе данных')
+        array('falseMessage' => 'Робот удален в базе данных')
     );
 }

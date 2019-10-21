@@ -109,6 +109,11 @@ class Goods
         $this->id = htmlspecialchars(strip_tags($this->id));
         // Биндим данные
         $statement->bindParam(':id', $this->id);
+
+        if ($statement->execute()) {
+            return true;
+        }
     }
+
 
 }
