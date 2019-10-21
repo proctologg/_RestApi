@@ -38,5 +38,10 @@ if($num > 0) {
 
     echo json_encode($goods_arr);
 
+}  else {
+    //  На случай если в базе нет роботов
+    echo json_encode(
+        array('notfoundmessage' => 'Роботы не найдены')
+    );
 }
 
