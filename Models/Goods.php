@@ -85,7 +85,7 @@ class Goods
         $this->description = htmlspecialchars(strip_tags($this->description));
         $this->id = htmlspecialchars(strip_tags($this->id));
 
-        // Биндим аднные
+        // Биндим данные
         $statement->bindParam(':name', $this->name);
         $statement->bindParam(':type', $this->type);
         $statement->bindParam(':year', $this->year);
@@ -97,5 +97,18 @@ class Goods
         }
     }
 
+
+    //Удаление робота
+    public function deleteRobo()
+    {
+        $query = 'DELETE FROM ' . $this->table . ' WHERE id = :id';
+        // подготавливаем
+        $statement = $this->conn->prepare($query);
+
+        // Очищаем даннные
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        // Биндим данные
+        $statement->bindParam(':id', $this->id);
+    }
 
 }
