@@ -3,7 +3,6 @@ class Goods
 {
     private $conn;
     private $table = 'goods';
-
     //свойства товаров
     public $id;
     public $name;
@@ -16,5 +15,16 @@ class Goods
         $this->conn = $db;
     }
 
+// Получить всех роботов
+public function readRobo()
+ {
+     //создаем запрос
+     $query = 'SELECT id, name, type, year, description FROM ' . $this->table . '';
+     // подготавливаем
+     $statement = $this->conn-prepare($query);
+     //выполняем запрос
+     $statement->execute();
+     return $statement;
+ }
 
 }
