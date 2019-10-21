@@ -13,7 +13,7 @@ $db = $database->connect();
 $product = new Goods($db);
 
 
-// получаем равку данны
+// получаем равку данных
 $data = json_decode(file_get_contents("php://input"));
 
 $product->name = $data->name;
@@ -21,13 +21,13 @@ $product->type = $data->type;
 $product->year = $data->year;
 $product->description = $data->descripton;
 
-// Create post
-if($product->create()) {
+// Создаем пост
+if($product->createRobo()) {
     echo json_encode(
         array('trueMesssage' => 'Робот создан в базе данных')
     );
 } else {
     echo json_encode(
-        array('falseMessage' => 'Робот создан в базе данных')
+        array('falseMessage' => 'Робот не создан в базе данных')
     );
 }
