@@ -25,6 +25,6 @@ if ($product->deleteRobo()) {
     );
 } else {
     echo json_encode(
-        array('falseMessage' => 'Робот удален в базе данных')
+        array('falseMessage' => 'Робот не удален в базе данных')
     );
 }
